@@ -6,6 +6,7 @@ import useStringHook from './hooks/StringHook'
 // import Other  from "./components/Other";
 //
 import useCheckValidEmail from "./hooks/CheckValidEmail";
+import useInput from "./hooks/useInput"
 
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
   const {stringHook, setStringHook, customWords, reverseString, doubleString} = useStringHook()  
 
   const checkValidEmail = useCheckValidEmail('my@email.com') 
+
+  const firstName = useInput('firstname')
+  const lastName = useInput('')
+
 
 
   return (
@@ -23,10 +28,17 @@ function App() {
       <button onClick={reverseString}>Reverse IT!</button>
       <button onClick={doubleString}>Double IT!</button>
       {/* <p><Other stringHook={stringHook}/></p> */}
-      <input onChange={(event) => setStringHook(event.target.value)} />
-      <h1>-------------------------</h1>
+      <input onChange={(event) => 
+        setStringHook(event.target.value)} />
+     
+      <h3>-------------------------</h3>
       <p>{checkValidEmail ? 'True' : 'False'}</p>
-    
+      <h3>-------------------------</h3>
+
+      <h3>First Name: {firstName.value}</h3>
+      <input  {...firstName}/>
+      <h3>Last Name: {lastName.value}</h3>
+      <input  {...lastName}/>
     </div>
   );
 }
