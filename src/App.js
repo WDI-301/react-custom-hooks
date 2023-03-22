@@ -9,12 +9,14 @@ import useStringHook from './hooks/StringHook'
 
 function App() {
 
-  const {stringHook, setStringHook, customWords} = useStringHook()  
+  const {stringHook, setStringHook, customWords, reverseString, doubleString} = useStringHook()  
   return (
     <div className="App App-header">
       <h1>Custom String Hooks</h1>  
       {customWords}
-      <p>{stringHook}</p>
+      <h2>{stringHook}</h2>
+      <button onClick={reverseString}>Reverse IT!</button>
+      <button onClick={doubleString}>Double IT!</button>
       {/* <p><Other stringHook={stringHook}/></p> */}
       <input onChange={(event) => setStringHook(event.target.value)} />
     
