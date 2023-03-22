@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
-const useCheckValidEmail = (props) => {
+const useCheckValidEmail = (params) => {
+    console.log(params)
     const [isValid, setIsValid] = useState(false)
 
     useEffect(() => {
-      (props.includes('@')) ? setIsValid(true): setIsValid(false)
+      (params.includes('@')) ? setIsValid(true): setIsValid(false)
   
-    }, [])
+    }, [params])
     
   return isValid
 }

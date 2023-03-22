@@ -13,10 +13,12 @@ function App() {
 
   const {stringHook, setStringHook, customWords, reverseString, doubleString} = useStringHook()  
 
-  const checkValidEmail = useCheckValidEmail('my@email.com') 
-
+  
   const firstName = useInput('firstname')
-  const lastName = useInput('')
+  const lastName = useInput('Please enter your Last Name')
+  const email = useInput('Please enter your email')
+  
+  const checkValidEmail = useCheckValidEmail(email.value) 
 
 
 
@@ -39,6 +41,9 @@ function App() {
       <input  {...firstName}/>
       <h3>Last Name: {lastName.value}</h3>
       <input  {...lastName}/>
+      <h3>email: {email.value}</h3>
+      <input  {...email}/>
+      <h3>Email is: {checkValidEmail ? 'Good' : 'Bad'}</h3>
     </div>
   );
 }

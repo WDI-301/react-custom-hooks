@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 const useInput = (initialValue) => {
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue] = useState('')
 
   const onChangeHandler = (e) => {
     setValue(e.target.value)
@@ -9,7 +9,8 @@ const useInput = (initialValue) => {
 
   return {
     value: value,
-    onChange: onChangeHandler
+    onChange: onChangeHandler,
+    placeholder: initialValue
   }
 }
 
